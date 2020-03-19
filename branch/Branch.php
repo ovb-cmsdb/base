@@ -52,7 +52,7 @@ class Branch {
 
     private function _panel()
     {
-        new panel\Route();
+        new panel\core\Route($this->param);
     }
 
     private function _website($panel)
