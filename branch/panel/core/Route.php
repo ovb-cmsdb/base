@@ -9,7 +9,7 @@ class Route extends route\Param {
     public function __construct($param)
     {
         parent::__construct($this->_param($param));
-        $this->_module();
+        $this->_404();
     }
 
     private function _param($param)
@@ -20,6 +20,17 @@ class Route extends route\Param {
         }
         $this->path = str_replace('/', '\\', $param['path']) . '\\';
         return $param;
+    }
+
+    private function _404()
+    {
+        $this->_404 ? $this->_error(404) : $this->_module();
+    }
+
+    private function _error($code)
+    {
+        http_response_code($code);
+        new main\Main($this->param);
     }
 
     private function _module()

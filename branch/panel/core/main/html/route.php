@@ -1,6 +1,6 @@
 <?php
 
-return [
+return[
     'div' => '
             <div id="route">[R]<div class="clear"></div></div>',
     'p' => '<p><span>&#187;</span>[T]</p>',

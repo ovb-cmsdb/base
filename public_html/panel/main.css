@@ -68,6 +68,9 @@ button:focus, select:focus, input:focus{
 .clear{
     clear: both;
 }
+.red{
+    color: rgb(255, 0, 0);
+}
 /* -- end general -- */
 
 /* -- #header -- */
@@ -163,6 +166,13 @@ button:focus, select:focus, input:focus{
 }
 /* -- end #header -- */
 
+/* -- #id-error -- */
+#id-error{
+    padding: 24px 10px 30px 10px;
+    color: rgb(255, 0, 0);
+}
+/* -- end #id-error -- */
+
 /* -- #route -- */
 #route{
     padding-top: 14px;
@@ -182,3 +192,16 @@ button:focus, select:focus, input:focus{
     color: rgb(55, 55, 55);
 }
 /* -- end #route -- */
+
+/* -- #menu -- */
+#menu{
+    padding: 24px 10px 30px 10px;
+    list-style-type: none;
+}
+#menu li{
+    padding-bottom: 12px;
+}
+#menu li:last-child{
+    padding-bottom: 0;
+}
+/* -- end #menu -- */

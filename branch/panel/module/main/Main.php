@@ -8,7 +8,7 @@ class Main extends \Run\panel\core\main\Main {
     {
         parent::__construct($param);
         parent::view([
-            'content' => 'Main'
+            'content' => '{ MENU }'
         ]);
     }
 

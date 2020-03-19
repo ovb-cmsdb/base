@@ -36,6 +36,7 @@ class View {
             '{ ROUTE }' => $this->_route($param['route'] ?? ''),
             '{ CONTENT }' => $param['content'] ?? '',
             '{ REQUEST }' => $this->param['request'],
+            '{ MENU }' => $this->param['menu'],
             '{ EXT }' => $this->param['ext'],
             '{ EOL }' => '        ' . PHP_EOL
         ];
@@ -54,7 +55,6 @@ class View {
 
     private function _route($append)
     {
-        $route = '';
         if (isset($this->param['lp']) and ! isset($this->param['error'])) {
             $html = require 'html/route.php';
             $routes = $this->_routes($html);
@@ -65,7 +65,7 @@ class View {
                             );
             $route = str_replace('[R]', $routes, $html['div']);
         }
-        return $route;
+        return $route ?? '';
     }
 
     private function _routes($html)

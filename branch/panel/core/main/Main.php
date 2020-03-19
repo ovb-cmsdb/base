@@ -12,6 +12,7 @@ class Main extends View {
     public function __construct($param)
     {
         parent::__construct($this->_param($param));
+        !isset($param['error']) ?: $this->_error($param['error']);
     }
 
     private function _param($param)
@@ -40,14 +41,46 @@ class Main extends View {
 
     private function _lang($path)
     {
-        $lang = [];
         $file = Path::MODULE . $path . '/lang/' . $this->lang . '.php';
         if (file_exists($file)) {
             $lf = require $file;
             !isset($lf['lp']) ?: $lang['lp'] = $lf['lp'];
+            !isset($lf['lm']) ?: $lang['menu'] = $this->_menu($lf['lm']);
             !isset($lf['le']) ?: $this->le = $lf['le'];
         }
-        return $lang;
+        return $lang ?? [];
+    }
+
+    private function _menu($lm)
+    {
+        $blank = [];
+        if (isset($lm['blank'])) {
+            $blank = $lm['blank'];
+            unset($lm['blank']);
+        }
+        asort($lm);
+        reset($lm);
+        $list = '';
+        $html = require 'html/menu.php';
+        foreach ($lm as $k => $v) {
+            $list .= str_replace(['[H]', '[A]'], [$k, $v], $html[
+                    in_array($k, $blank) ? 'li_blank' : 'li'
+            ]);
+        }
+        return str_replace('[L]', $list, $html['ul']);
+    }
+
+    private function _error($code)
+    {
+        $lang = (require 'lang/error/' . $this->lang . '.php')[$code];
+        parent::view([
+            'title' => $lang['title'],
+            'content' => str_replace(
+                    '[E]',
+                    $lang['content'],
+                    require Path::HTML . 'error.php'
+            )
+        ]);
     }
 
 }
