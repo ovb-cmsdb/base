@@ -28,7 +28,10 @@ class View {
             '{ LANG }' => $this->lang,
             '{ TITLE:LT }' => $lt['title'],
             '{ SIGN_OUT-UPP:LT }' => $lt['sign_out-upp'],
+            '{ MULTILANG }' => $this->param['multilang'],
+            '{ PERSONAL }' => $this->param['personal'],
             '{ CONTENT }' => $param['content'] ?? '',
+            '{ REQUEST }' => $this->param['request'],
             '{ EXT }' => $this->param['ext'],
             '{ EOL }' => '        ' . PHP_EOL
         ];

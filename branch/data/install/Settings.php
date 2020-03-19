@@ -24,6 +24,19 @@ class Settings {
         file_put_contents(Root::SZ . 'branch_run.sz', serialize([
             'panel' => '.ww'
         ]));
+        $this->_panel_langs();
+    }
+
+    private function _panel_langs()
+    {
+        file_put_contents(Root::SZ . 'panel_langs.sz', serialize([
+            'lang' => 'ru',
+            'langs' => [
+                'en' => 'English',
+                'ru' => 'Русский'
+            ],
+            'multilang' => false
+        ]));
     }
 
 }
