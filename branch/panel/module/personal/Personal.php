@@ -8,6 +8,8 @@ class Personal extends \Run\panel\core\main\Main {
     {
         parent::__construct($param);
         parent::view([
+            'title' => $this->le['title'],
+            'route' => $this->le['route'],
             'content' => 'Personal'
         ]);
     }

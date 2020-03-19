@@ -84,6 +84,15 @@ button:focus, select:focus, input:focus{
     height: 22px;
     background: url(img/white.66x22.png) 0 0 no-repeat;
 }
+#header a .logo{
+    background: url(img/white.66x22.png) -22px 0 no-repeat;
+}
+#header a:hover .logo{
+    background: url(img/white.66x22.png) 0 0 no-repeat;
+}
+#header a:active .logo{
+    background: url(img/white.66x22.png) -44px 0 no-repeat;
+}
 #header .right{
     float: right;
     padding: 24px 10px 0 0;
@@ -153,3 +162,23 @@ button:focus, select:focus, input:focus{
     top: 1px;
 }
 /* -- end #header -- */
+
+/* -- #route -- */
+#route{
+    padding-top: 14px;
+    border-bottom: 3px double rgb(207, 211, 221);
+}
+#route p{
+    display: block;
+    float: left;
+    padding: 0 8px 10px 0;
+}
+#route p span{
+    position: relative;
+    bottom: 1px;
+    padding-right: 8px;
+}
+#route p[class="red"] span{
+    color: rgb(55, 55, 55);
+}
+/* -- end #route -- */
