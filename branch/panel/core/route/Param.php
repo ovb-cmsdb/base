@@ -4,9 +4,9 @@ namespace Run\panel\core\route;
 
 use Run\panel\core\corp\Path;
 
-class Param {
+class Param extends Login {
 
-    protected $class, $_404, $param;
+    protected $class, $_404;
 
     public function __construct($param)
     {
@@ -20,7 +20,7 @@ class Param {
         } else {
             unset($param['error']);
         }
-        $this->param = $param;
+        parent::__construct($param);
     }
 
 }
